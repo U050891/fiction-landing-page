@@ -13,11 +13,11 @@ export class GlobalHeaderComponent {
   @Input() pushContent: boolean = false;
 
   links = [
-    { key: 'HOME', link: '/home' },
+    { key: 'Home', link: '/home' },
     // { key: 'CATÁLOGO', link: '/catalogue' },
-    { key: 'SERVICIOS', link: '/services' },
-    { key: 'NOSOTROS', link: '/about-us' },
-    { key: 'CONTACTO', link: '/contact' },
+    { key: 'Fictional', link: '' },
+    { key: 'Family', link: '' },
+    { key: 'Far away', link: '' },
   ];
   showMenu = false;
 
