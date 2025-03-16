@@ -1,0 +1,49 @@
+<header class="fixed top-0 left-0 right-0 border-indigo-700 shadow-md z-50 transition-transform duration-300" 
+        [ngClass]="{'translate-y-0': !pushContent, '-translate-y-full': pushContent}">
+    <nav class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+            <!-- Logo or Brand Name could go here -->
+            <div class="flex items-center">
+                <!-- Add your logo here if needed -->
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden focus:outline-none" (click)="toggleMenu()" aria-label="Toggle menu">
+                <div class="w-6 h-6 flex flex-col justify-between" [ngClass]="{'rotate-180': showMenu}">
+                    <span class="block w-full h-0.5 bg-gray-800 transition-all duration-300"
+                          [ngClass]="{'rotate-45 translate-y-2.5': showMenu}"></span>
+                    <span class="block w-full h-0.5 bg-gray-800 transition-all duration-300"
+                          [ngClass]="{'opacity-0': showMenu}"></span>
+                    <span class="block w-full h-0.5 bg-gray-800 transition-all duration-300"
+                          [ngClass]="{'rotate-[-45deg] -translate-y-2.5': showMenu}"></span>
+                </div>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex lg:items-center lg:space-x-8">
+                @for (item of links; track item.key) {
+                    <a [routerLink]="item.link"
+                       (click)="onLinkClicked()"
+                       class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
+                       [ngClass]="{'text-blue-600': isCurrentLink(item.link)}">
+                        {{ item.key }}
+                    </a>
+                }
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="lg:hidden" [ngClass]="{'block': showMenu, 'hidden': !showMenu}">
+            <div class="py-2 space-y-2">
+                @for (item of links; track item.key) {
+                    <a [routerLink]="item.link"
+                       (click)="onLinkClicked()"
+                       class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200"
+                       [ngClass]="{'bg-blue-50 text-blue-600': isCurrentLink(item.link)}">
+                        {{ item.key }}
+                    </a>
+                }
+            </div>
+        </div>
+    </nav>
+</header>
