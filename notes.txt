@@ -1,0 +1,2 @@
+lets move the current home page to the fictional page
+and create the main home page with a better style 
