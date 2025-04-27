@@ -1,6 +1,15 @@
-<div class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+<div class="min-h-screen relative overflow-hidden text-white">
+  <!-- Video Background -->
+  <div class="absolute inset-0 z-0">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+      <source src="assets/video/Fiction base.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  </div>
+
   <!-- Hero Section -->
-  <section class="container mx-auto px-6 py-20 text-center">
+  <section class="container mx-auto px-6 py-20 text-center relative z-10">
     <h1 class="text-5xl font-bold mb-6">Welcome to Fiction</h1>
     <p class="text-xl mb-8 max-w-2xl mx-auto">
       Discover amazing stories that will transport you to new worlds and experiences.
@@ -11,15 +20,15 @@
   </section>
 
   <!-- Card Section -->
-  <section class="container mx-auto px-6 pb-20">
-    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden text-gray-800">
+  <section class="container mx-auto px-6 pb-20 relative z-10">
+    <div class="max-w-md mx-auto backdrop-blur-lg bg-white/20 rounded-xl shadow-lg overflow-hidden text-white border border-white/10">
       <div class="p-8">
-        <div class="uppercase tracking-wide text-sm text-blue-600 font-semibold mb-1">Featured</div>
+        <div class="uppercase tracking-wide text-sm text-blue-300 font-semibold mb-1">Featured</div>
         <h2 class="text-2xl font-bold mb-4">Latest Release</h2>
-        <p class="text-gray-600 mb-6">
+        <p class="text-white/80 mb-6">
           Dive into our newest fiction collection that blends reality with imagination in unexpected ways.
         </p>
-        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+        <button class="bg-blue-600/90 hover:bg-blue-700/90 text-white font-bold py-2 px-6 rounded-full transition duration-300">
           Read More
         </button>
       </div>
