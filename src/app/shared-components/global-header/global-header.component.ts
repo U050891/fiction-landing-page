@@ -15,7 +15,7 @@ export class GlobalHeaderComponent {
   links = [
     { key: 'Home', link: '/home' },
     // { key: 'CATÁLOGO', link: '/catalogue' },
-    { key: 'Fictional', link: '' },
+    { key: 'Fictional', link: '/fictional' },
     { key: 'Family', link: '' },
     { key: 'Far away', link: '' },
   ];
