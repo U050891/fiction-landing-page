@@ -1,13 +1,43 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ViewChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home-page',
-  standalone: true,
-  imports: [],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.css'
+  styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit, AfterViewInit {
+  @ViewChild('backgroundVideo') videoRef!: ElementRef<HTMLVideoElement>;
 
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    // Handle route changes
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.playVideo();
+      });
+  }
+
+  ngAfterViewInit() {
+    this.playVideo();
+  }
+
+  playVideo() {
+    const video = this.videoRef.nativeElement;
+    video.muted = true;
+    video.currentTime = 0;
+    
+    const playPromise = video.play();
+    
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        console.warn('Video playback failed:', error);
+        // Try again with user interaction fallback
+        document.addEventListener('click', () => video.play(), { once: true });
+      });
+    }
+  }
 }
