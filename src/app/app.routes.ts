@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './shared-components/main-layout/main-layout.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { BeautyLaborComponent } from './pages/beauty-labor/beauty-labor.component';
 
 export const routes: Routes = [
     {
@@ -15,6 +16,10 @@ export const routes: Routes = [
             {
                 path: 'home',
                 component: HomePageComponent
+            },
+            {
+                path: 'beauty-labor',
+                component: BeautyLaborComponent
             },
         ]
     }

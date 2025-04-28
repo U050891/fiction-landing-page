@@ -14,6 +14,7 @@ export class GlobalHeaderComponent {
 
   links = [
     { key: 'Home', link: '/home' },
+    { key: 'beauty labor', link: '/beauty-labor' },
     //{ key: 'Far away', link: '' },
   ];
   showMenu = false;
